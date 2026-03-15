@@ -26,7 +26,7 @@ export default function Home() {
       <Navigation />
       <CustomCursor />
 
-      <main className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 cursor-none">
+      <main className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 cursor-none md:pl-40">
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
           {/* Glassmorphic Background Elements with Parallax */}

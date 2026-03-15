@@ -541,15 +541,12 @@ const navItems = [
 ];
 function Navigation() {
     _s();
-    const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [activeSection, setActiveSection] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('home');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Navigation.useEffect": ()=>{
             const handleScroll = {
                 "Navigation.useEffect.handleScroll": ()=>{
-                    // Show navbar after scrolling 100px
-                    setIsVisible(window.scrollY > 100);
                     // Detect active section
                     const sections = navItems.map({
                         "Navigation.useEffect.handleScroll.sections": (item)=>item.href.replace('#', '')
@@ -583,42 +580,64 @@ function Navigation() {
             setIsMobileMenuOpen(false);
         }
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-        children: isVisible && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].nav, {
-                    initial: {
-                        y: -100,
-                        opacity: 0
-                    },
-                    animate: {
-                        y: 0,
-                        opacity: 1
-                    },
-                    exit: {
-                        y: -100,
-                        opacity: 0
-                    },
-                    transition: {
-                        duration: 0.3,
-                        ease: [
-                            0.16,
-                            1,
-                            0.3,
-                            1
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].nav, {
+                initial: {
+                    x: -160,
+                    opacity: 0
+                },
+                animate: {
+                    x: 0,
+                    opacity: 1
+                },
+                transition: {
+                    duration: 0.5,
+                    ease: [
+                        0.16,
+                        1,
+                        0.3,
+                        1
+                    ]
+                },
+                className: "hidden md:flex flex-col fixed left-0 top-0 h-screen w-40 z-40 backdrop-blur-2xl bg-white/70 border-r border-white/60 shadow-lg",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "p-6 border-b border-white/40",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm font-light text-gray-600 tracking-tight",
+                                children: "Dennis"
+                            }, void 0, false, {
+                                fileName: "[project]/portfolio/components/Navigation.tsx",
+                                lineNumber: 62,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm font-light text-gray-600 tracking-tight",
+                                children: "Shaba"
+                            }, void 0, false, {
+                                fileName: "[project]/portfolio/components/Navigation.tsx",
+                                lineNumber: 63,
+                                columnNumber: 11
+                            }, this)
                         ]
-                    },
-                    className: "hidden md:block fixed top-4 left-1/2 -translate-x-1/2 z-40 px-6 py-3 backdrop-blur-2xl bg-white/70 border border-white/60 rounded-full shadow-lg",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "flex gap-1",
+                    }, void 0, true, {
+                        fileName: "[project]/portfolio/components/Navigation.tsx",
+                        lineNumber: 61,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                        className: "flex flex-col py-8 px-4 flex-1",
                         children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                className: "mb-2",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>scrollToSection(item.href),
-                                    className: "relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300",
+                                    className: "relative w-full text-left px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300 rounded",
                                     children: [
                                         activeSection === item.href.replace('#', '') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                             layoutId: "activeSection",
-                                            className: "absolute inset-0 bg-white/80 rounded-full shadow-sm",
+                                            className: "absolute inset-0 bg-white/80 rounded shadow-sm",
                                             transition: {
                                                 type: 'spring',
                                                 stiffness: 380,
@@ -627,7 +646,7 @@ function Navigation() {
                                         }, void 0, false, {
                                             fileName: "[project]/portfolio/components/Navigation.tsx",
                                             lineNumber: 75,
-                                            columnNumber: 23
+                                            columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "relative z-10",
@@ -635,154 +654,146 @@ function Navigation() {
                                         }, void 0, false, {
                                             fileName: "[project]/portfolio/components/Navigation.tsx",
                                             lineNumber: 81,
-                                            columnNumber: 21
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/portfolio/components/Navigation.tsx",
                                     lineNumber: 70,
-                                    columnNumber: 19
+                                    columnNumber: 15
                                 }, this)
                             }, item.name, false, {
                                 fileName: "[project]/portfolio/components/Navigation.tsx",
                                 lineNumber: 69,
-                                columnNumber: 17
+                                columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/portfolio/components/Navigation.tsx",
                         lineNumber: 67,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/portfolio/components/Navigation.tsx",
+                lineNumber: 54,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
+                initial: {
+                    y: -100,
+                    opacity: 0
+                },
+                animate: {
+                    y: 0,
+                    opacity: 1
+                },
+                transition: {
+                    duration: 0.3,
+                    ease: [
+                        0.16,
+                        1,
+                        0.3,
+                        1
+                    ]
+                },
+                onClick: ()=>setIsMobileMenuOpen(!isMobileMenuOpen),
+                className: "md:hidden fixed top-4 right-4 z-50 p-3 backdrop-blur-2xl bg-white/70 border border-white/60 rounded-full shadow-lg",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                    className: "w-6 h-6 text-gray-900",
+                    fill: "none",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    strokeWidth: "2",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    children: isMobileMenuOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M6 18L18 6M6 6l12 12"
+                    }, void 0, false, {
+                        fileName: "[project]/portfolio/components/Navigation.tsx",
+                        lineNumber: 106,
+                        columnNumber: 13
+                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M4 6h16M4 12h16M4 18h16"
+                    }, void 0, false, {
+                        fileName: "[project]/portfolio/components/Navigation.tsx",
+                        lineNumber: 108,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/portfolio/components/Navigation.tsx",
-                    lineNumber: 60,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
+                    lineNumber: 96,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/portfolio/components/Navigation.tsx",
+                lineNumber: 89,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                children: isMobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                     initial: {
-                        y: -100,
-                        opacity: 0
+                        opacity: 0,
+                        scale: 0.95
                     },
                     animate: {
-                        y: 0,
-                        opacity: 1
+                        opacity: 1,
+                        scale: 1
                     },
                     exit: {
-                        y: -100,
-                        opacity: 0
+                        opacity: 0,
+                        scale: 0.95
                     },
                     transition: {
-                        duration: 0.3,
-                        ease: [
-                            0.16,
-                            1,
-                            0.3,
-                            1
-                        ]
+                        duration: 0.2
                     },
-                    onClick: ()=>setIsMobileMenuOpen(!isMobileMenuOpen),
-                    className: "md:hidden fixed top-4 right-4 z-50 p-3 backdrop-blur-2xl bg-white/70 border border-white/60 rounded-full shadow-lg",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        className: "w-6 h-6 text-gray-900",
-                        fill: "none",
-                        strokeLinecap: "round",
-                        strokeLinejoin: "round",
-                        strokeWidth: "2",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        children: isMobileMenuOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M6 18L18 6M6 6l12 12"
-                        }, void 0, false, {
-                            fileName: "[project]/portfolio/components/Navigation.tsx",
-                            lineNumber: 107,
-                            columnNumber: 17
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                            d: "M4 6h16M4 12h16M4 18h16"
-                        }, void 0, false, {
-                            fileName: "[project]/portfolio/components/Navigation.tsx",
-                            lineNumber: 109,
-                            columnNumber: 17
-                        }, this)
+                    className: "md:hidden fixed top-20 right-4 z-40 backdrop-blur-2xl bg-white/70 border border-white/60 rounded-2xl shadow-lg overflow-hidden",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                        className: "py-2",
+                        children: navItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].li, {
+                                initial: {
+                                    opacity: 0,
+                                    x: -20
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    x: 0
+                                },
+                                transition: {
+                                    delay: index * 0.05
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>scrollToSection(item.href),
+                                    className: `w-full text-left px-6 py-3 text-sm font-medium transition-colors duration-200 ${activeSection === item.href.replace('#', '') ? 'text-gray-900 bg-white/50' : 'text-gray-700 hover:bg-white/30'}`,
+                                    children: item.name
+                                }, void 0, false, {
+                                    fileName: "[project]/portfolio/components/Navigation.tsx",
+                                    lineNumber: 131,
+                                    columnNumber: 19
+                                }, this)
+                            }, item.name, false, {
+                                fileName: "[project]/portfolio/components/Navigation.tsx",
+                                lineNumber: 125,
+                                columnNumber: 17
+                            }, this))
                     }, void 0, false, {
                         fileName: "[project]/portfolio/components/Navigation.tsx",
-                        lineNumber: 97,
+                        lineNumber: 123,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/portfolio/components/Navigation.tsx",
-                    lineNumber: 89,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                    children: isMobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        initial: {
-                            opacity: 0,
-                            scale: 0.95
-                        },
-                        animate: {
-                            opacity: 1,
-                            scale: 1
-                        },
-                        exit: {
-                            opacity: 0,
-                            scale: 0.95
-                        },
-                        transition: {
-                            duration: 0.2
-                        },
-                        className: "md:hidden fixed top-20 right-4 z-40 backdrop-blur-2xl bg-white/70 border border-white/60 rounded-2xl shadow-lg overflow-hidden",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                            className: "py-2",
-                            children: navItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].li, {
-                                    initial: {
-                                        opacity: 0,
-                                        x: -20
-                                    },
-                                    animate: {
-                                        opacity: 1,
-                                        x: 0
-                                    },
-                                    transition: {
-                                        delay: index * 0.05
-                                    },
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>scrollToSection(item.href),
-                                        className: `w-full text-left px-6 py-3 text-sm font-medium transition-colors duration-200 ${activeSection === item.href.replace('#', '') ? 'text-gray-900 bg-white/50' : 'text-gray-700 hover:bg-white/30'}`,
-                                        children: item.name
-                                    }, void 0, false, {
-                                        fileName: "[project]/portfolio/components/Navigation.tsx",
-                                        lineNumber: 132,
-                                        columnNumber: 23
-                                    }, this)
-                                }, item.name, false, {
-                                    fileName: "[project]/portfolio/components/Navigation.tsx",
-                                    lineNumber: 126,
-                                    columnNumber: 21
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "[project]/portfolio/components/Navigation.tsx",
-                            lineNumber: 124,
-                            columnNumber: 17
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/portfolio/components/Navigation.tsx",
-                        lineNumber: 117,
-                        columnNumber: 15
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/portfolio/components/Navigation.tsx",
-                    lineNumber: 115,
+                    lineNumber: 116,
                     columnNumber: 11
                 }, this)
-            ]
-        }, void 0, true)
-    }, void 0, false, {
-        fileName: "[project]/portfolio/components/Navigation.tsx",
-        lineNumber: 56,
-        columnNumber: 5
-    }, this);
+            }, void 0, false, {
+                fileName: "[project]/portfolio/components/Navigation.tsx",
+                lineNumber: 114,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true);
 }
-_s(Navigation, "Whf11c6U2AOlR8VdAP6m/nouzi0=");
+_s(Navigation, "noZ0J3XWuD/ur2sEWcV9ABmemts=");
 _c = Navigation;
 var _c;
 __turbopack_context__.k.register(_c, "Navigation");
@@ -974,7 +985,7 @@ function Home() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-                className: "bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 cursor-none",
+                className: "bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 cursor-none md:pl-40",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$portfolio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                         id: "home",
