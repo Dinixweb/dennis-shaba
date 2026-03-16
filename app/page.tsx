@@ -87,8 +87,8 @@ export default function Home() {
             className="mt-16 flex gap-8 justify-center items-center"
           >
             {[
-              { label: 'GitHub', url: basics.profiles.find(p => p.network === 'GitHub')?.url },
-              { label: 'LinkedIn', url: basics.profiles.find(p => p.network === 'LinkedIn')?.url },
+              { label: 'GitHub', url: basics.profiles.find((p: any) => p.network === 'GitHub')?.url },
+              { label: 'LinkedIn', url: basics.profiles.find((p: any) => p.network === 'LinkedIn')?.url },
               { label: 'Email', url: `mailto:${basics.email}` },
             ].map((link, i) => (
               <a
