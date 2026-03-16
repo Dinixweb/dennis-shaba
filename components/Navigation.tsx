@@ -2,14 +2,17 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { Home, Briefcase, Zap, BookOpen, Rocket, Mail, Building2 } from 'lucide-react'
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Education', href: '#education' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '#home', icon: Home },
+  { name: 'Experience', href: '#experience', icon: Briefcase },
+  { name: 'Ventures', href: '#ventures', icon: Building2 },
+  { name: 'Skills', href: '#skills', icon: Zap },
+  { name: 'Education', href: '#education', icon: BookOpen },
+  { name: 'Projects', href: '#projects', icon: Rocket },
+  { name: 'Contact', href: '#contact', icon: Mail },
 ]
 
 export default function Navigation() {
@@ -52,37 +55,93 @@ export default function Navigation() {
     <>
       {/* Desktop Sidebar Navigation */}
       <motion.nav
-        initial={{ x: -160, opacity: 0 }}
+        initial={{ x: -288, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="hidden md:flex flex-col fixed left-0 top-0 h-screen w-40 z-40 backdrop-blur-2xl bg-white/70 border-r border-white/60 shadow-lg"
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="hidden md:flex flex-col fixed left-0 top-0 h-screen w-72 z-40 backdrop-blur-xl bg-white/80"
       >
-        {/* Sidebar Header */}
-        <div className="p-6 border-b border-white/40">
-          <p className="text-sm font-light text-gray-600 tracking-tight">Dennis</p>
-          <p className="text-sm font-light text-gray-600 tracking-tight">Shaba</p>
-        </div>
+        {/* Subtle Border */}
+        <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-black/10 via-black/5 to-transparent" />
 
-        {/* Navigation Items */}
-        <ul className="flex flex-col py-8 px-4 flex-1">
-          {navItems.map((item) => (
-            <li key={item.name} className="mb-2">
-              <button
-                onClick={() => scrollToSection(item.href)}
-                className="relative w-full text-left px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300 rounded"
-              >
-                {activeSection === item.href.replace('#', '') && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute inset-0 bg-white/80 rounded shadow-sm"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{item.name}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        {/* Content */}
+        <div className="relative z-10 flex flex-col h-full">
+          {/* Profile Section */}
+          <div className="px-8 pt-10 pb-8">
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className="mb-6"
+            >
+              <div className="relative w-16 h-16 mx-auto">
+                <Image
+                  src="https://avatars.githubusercontent.com/u/13332211?v=4"
+                  alt="Dennis Shaba"
+                  width={64}
+                  height={64}
+                  priority
+                  unoptimized
+                  className="rounded-full shadow-sm object-cover"
+                />
+              </div>
+            </motion.div>
+
+            <h2 className="text-center text-base font-semibold text-gray-900">Dennis Shaba</h2>
+            <p className="text-center text-xs text-gray-500 font-medium mt-2">Software Engineer</p>
+          </div>
+
+          {/* Navigation Items */}
+          <ul className="flex flex-col px-3 space-y-1 flex-1">
+            {navItems.map((item, index) => {
+              const isActive = activeSection === item.href.replace('#', '')
+              const IconComponent = item.icon
+
+              return (
+                <motion.li
+                  key={item.name}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + index * 0.04 }}
+                >
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="relative w-full group"
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute inset-0 bg-gray-100 rounded-lg"
+                        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                      />
+                    )}
+
+                    <div className="relative px-4 py-2.5 flex items-center gap-3 rounded-lg transition-all duration-200 group-hover:bg-gray-50/60">
+                      <IconComponent className={`w-5 h-5 flex-shrink-0 transition-colors duration-200 ${
+                        isActive
+                          ? 'text-gray-900'
+                          : 'text-gray-600 group-hover:text-gray-900'
+                      }`} />
+                      <span className={`text-sm font-medium transition-colors duration-200 ${
+                        isActive
+                          ? 'text-gray-900'
+                          : 'text-gray-600 group-hover:text-gray-900'
+                      }`}>
+                        {item.name}
+                      </span>
+                    </div>
+                  </button>
+                </motion.li>
+              )
+            })}
+          </ul>
+
+          {/* Footer */}
+          <div className="px-8 py-6 border-t border-gray-200/50">
+            <p className="text-xs text-gray-400 text-center font-medium">
+              © {new Date().getFullYear()}
+            </p>
+          </div>
+        </div>
       </motion.nav>
 
       {/* Mobile Navigation Button */}

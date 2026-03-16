@@ -1,3 +1,67 @@
-[00:00:01.034] Server  LOG     ✓ Ready in 736ms
-[02:46:35.666] Server  LOG     ✓ Compiled in 1069ms
-[02:46:40.455] Server  LOG     ✓ Compiled in 76ms
+[00:00:00.941] Server  LOG      ✓ Ready in 682ms
+[00:00:03.786] Server  ERROR    ⨯ ./portfolio/app/page.tsx:356:13
+Parsing ecmascript source code failed
+  354 |               </motion.a>
+  355 |               )
+> 356 |             })}
+      |             ^
+  357 |           </div>
+  358 |         </div>
+  359 |       </section>
+
+Expected '</', got '}'
+
+
+[00:00:04.457] Browser ERROR   uncaughtError: Error: ./portfolio/app/page.tsx:356:13
+Parsing ecmascript source code failed
+  354 |               </motion.a>
+  355 |               )
+> 356 |             })}
+      |             ^
+  357 |           </div>
+  358 |         </div>
+  359 |       </section>
+
+Expected '</', got '}'
+
+
+[00:00:05.220] Browser ERROR   ./portfolio/app/page.tsx:356:13
+Parsing ecmascript source code failed
+  354 |               </motion.a>
+  355 |               )
+> 356 |             })}
+      |             ^
+  357 |           </div>
+  358 |         </div>
+  359 |       </section>
+
+Expected '</', got '}'
+[00:00:05.220] Browser ERROR   ./portfolio/app/page.tsx:356:13
+Parsing ecmascript source code failed
+  354 |               </motion.a>
+  355 |               )
+> 356 |             })}
+      |             ^
+  357 |           </div>
+  358 |         </div>
+  359 |       </section>
+
+Expected '</', got '}'
+[00:00:39.520] Server  LOG      ✓ Compiled in 563ms
+[00:02:55.485] Browser WARN    Image with src "https://avatars.githubusercontent.com/u/13332211?v=4" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[09:22:46.528] Server  LOG      ✓ Compiled in 698ms
+[09:22:59.222] Server  LOG      ✓ Compiled in 290ms
+[09:25:29.952] Server  LOG      ✓ Compiled in 248ms
+[09:25:40.186] Server  LOG      ✓ Compiled in 101ms
+[09:25:54.207] Server  LOG      ✓ Compiled in 232ms
+[09:26:59.183] Server  LOG      ✓ Compiled in 51ms
+[09:27:28.347] Server  LOG      ✓ Compiled in 25ms
+[09:27:37.774] Server  LOG      ✓ Compiled in 179ms
+[09:27:52.101] Server  LOG      ✓ Compiled in 207ms
+[09:41:47.771] Server  LOG      ✓ Compiled in 258ms
+[09:42:04.144] Server  LOG      ✓ Compiled in 523ms
+[09:42:05.108] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: object with keys {$$typeof, render}). If you meant to render a collection of children, use an array instead.
+[09:42:40.142] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[09:42:40.143] Server  LOG      ✓ Compiled in 226ms
+[11:51:20.802] Server  LOG      ✓ Compiled in 967ms

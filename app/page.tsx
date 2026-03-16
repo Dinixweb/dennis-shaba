@@ -8,9 +8,11 @@ import GlassCard from '@/components/GlassCard'
 import ScrollProgress from '@/components/ScrollProgress'
 import Navigation from '@/components/Navigation'
 import CustomCursor from '@/components/CustomCursor'
+import ExperienceCard from '@/components/ExperienceCard'
+import { Code2, Database, Cloud, Wrench, Layers, Users as UsersIcon, BookOpen, Zap } from 'lucide-react'
 
 export default function Home() {
-  const { basics, work, education, certificates, skills, projects } = portfolioData
+  const { basics, work, education, certificates, skills, projects, ventures } = portfolioData as any
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95])
@@ -26,7 +28,7 @@ export default function Home() {
       <Navigation />
       <CustomCursor />
 
-      <main className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 cursor-none md:pl-40">
+      <main className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 cursor-none md:pl-72">
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
           {/* Glassmorphic Background Elements with Parallax */}
@@ -121,54 +123,103 @@ export default function Home() {
 
       {/* Experience Section */}
       <section id="experience" className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center text-gray-900"
           >
             Experience
           </motion.h2>
 
-          <div className="space-y-8">
-            {work.slice(0, 6).map((job, index) => (
+          <div className="space-y-4">
+            {work.map((job, index) => (
+              <ExperienceCard
+                key={index}
+                position={job.position}
+                company={job.name}
+                companyDescription={job.companyDescription}
+                location={job.location}
+                startDate={job.startDate}
+                endDate={job.endDate}
+                isCurrentRole={job.isCurrentRole}
+                highlights={job.highlights}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ventures Section */}
+      <section id="ventures" className="py-32 px-6 bg-gray-50/50">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center text-gray-900"
+          >
+            Founder Ventures
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ventures && ventures.map((venture: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <GlassCard>
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
-                    <div>
-                      <h3 className="text-2xl font-medium mb-2">{job.position}</h3>
-                      <p className="text-xl text-gray-600 mb-2">{job.name}</p>
-                      <p className="text-sm text-gray-400">{job.location}</p>
+                <a
+                  href={venture.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group h-full block"
+                >
+                  <GlassCard className="h-full border-l-4 border-gray-300 hover:border-gray-600 transition-all duration-300 hover:shadow-lg">
+                    <div className="mb-4 flex items-start justify-between">
+                      <div className="p-2 bg-gray-100 rounded-lg">
+                        <Zap className="w-6 h-6 text-gray-700" />
+                      </div>
+                      <span className="px-2 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full">
+                        {venture.role}
+                      </span>
                     </div>
-                    <div className="mt-4 md:mt-0">
-                      <p className="text-sm text-gray-500">
-                        {new Date(job.startDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} —{' '}
-                        {job.isCurrentRole ? 'Present' : new Date(job.endDate!).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                    <h3 className="text-2xl font-semibold mb-2 text-gray-900 group-hover:text-gray-700 transition-colors">
+                      {venture.name}
+                    </h3>
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">
+                        {venture.status}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        Launched {new Date(venture.launchDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 mb-4 leading-relaxed text-sm">
+                      {venture.description}
+                    </p>
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">Technologies</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {venture.technologies.map((tech: string, i: number) => (
+                          <span key={i} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="pt-4 border-t border-gray-200">
+                      <p className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
+                        View Platform →
                       </p>
-                      {job.isCurrentRole && (
-                        <span className="inline-block mt-2 px-3 py-1 bg-gray-900 text-white text-xs rounded-full">
-                          Current
-                        </span>
-                      )}
                     </div>
-                  </div>
-
-                  <ul className="space-y-3">
-                    {job.highlights.slice(0, 3).map((highlight, i) => (
-                      <li key={i} className="text-gray-600 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0">
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
+                  </GlassCard>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -177,79 +228,145 @@ export default function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center text-gray-900"
           >
-            Skills
+            Technical Skills
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'Frontend', skills: ['Next.js', 'React', 'TypeScript', 'React Native'] },
-              { name: 'Backend', skills: ['Java', 'Node.js', 'Spring Boot', 'Express'] },
-              { name: 'DevOps', skills: ['AWS', 'GCP', 'Docker', 'Kubernetes'] },
-            ].map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-              >
-                <GlassCard>
-                  <h3 className="text-xl font-medium mb-6">{category.name}</h3>
-                  <ul className="space-y-3">
-                    {category.skills.map((skill, i) => (
-                      <li key={i} className="text-gray-600 font-light">
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
-              </motion.div>
-            ))}
+              {
+                name: 'Frontend',
+                icon: Code2,
+                skills: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'React Native', 'Redux', 'Tailwind CSS', 'HTML/CSS', 'Angular', 'AngularJS']
+              },
+              {
+                name: 'Backend',
+                icon: Layers,
+                skills: ['Java', 'Spring Boot', 'Node.js', 'Express.js', 'Python', 'RESTful APIs', 'GraphQL', 'Microservices', 'Spring Web Flux']
+              },
+              {
+                name: 'Databases',
+                icon: Database,
+                skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'JPA', 'Hibernate', 'SQL Optimization']
+              },
+              {
+                name: 'DevOps & Cloud',
+                icon: Cloud,
+                skills: ['Docker', 'Kubernetes', 'AWS', 'GCP', 'CI/CD', 'Jenkins', 'Apache Kafka']
+              },
+              {
+                name: 'Testing & Tools',
+                icon: Wrench,
+                skills: ['JUnit', 'Mockito', 'Selenium', 'Git', 'ApexCharts', 'Axios']
+              },
+              {
+                name: 'Specializations',
+                icon: UsersIcon,
+                skills: ['Team Leadership', 'System Architecture', 'Full Stack Development', 'Performance Optimization', 'Code Review', 'Security']
+              },
+            ].map((category, index) => {
+              const IconComponent = category.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                >
+                  <GlassCard className="h-full border-l-4 border-gray-300 hover:border-gray-600 transition-colors duration-300">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="p-2 bg-gray-100 rounded-lg">
+                        <IconComponent className="w-5 h-5 text-gray-700" />
+                      </div>
+                      <h3 className="text-base font-semibold text-gray-900 uppercase tracking-wide">
+                        {category.name}
+                      </h3>
+                    </div>
+                    <ul className="space-y-2">
+                      {category.skills.map((skill, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.04 }}
+                          className="text-gray-700 text-sm leading-relaxed flex items-start"
+                        >
+                          <span className="text-gray-400 mr-3 mt-1.5 flex-shrink-0">–</span>
+                          <span>{skill}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </GlassCard>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Education Section */}
       <section id="education" className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center text-gray-900"
           >
             Education
           </motion.h2>
 
-          <div className="space-y-8">
-            {education.map((edu, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <GlassCard>
-                  <h3 className="text-xl font-medium mb-2">
-                    {edu.studyType} in {edu.area}
-                  </h3>
-                  <p className="text-gray-600 mb-1">{edu.institution}</p>
-                  <p className="text-sm text-gray-400">
-                    {new Date(edu.startDate).getFullYear()} — {new Date(edu.endDate).getFullYear()}
-                  </p>
-                </GlassCard>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {education.map((edu, index) => {
+              const startYear = new Date(edu.startDate).getFullYear()
+              const endYear = new Date(edu.endDate).getFullYear()
+              const duration = endYear - startYear
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <GlassCard className="h-full border-l-4 border-gray-300 hover:border-gray-600 transition-colors duration-300">
+                    <div className="mb-4 p-2 bg-gray-100 rounded-lg w-fit">
+                      <BookOpen className="w-6 h-6 text-gray-700" />
+                    </div>
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                      {edu.studyType}
+                    </h3>
+                    <p className="text-xl text-gray-600 mb-3 font-medium">
+                      {edu.area}
+                    </p>
+                    <a
+                      href={edu.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-gray-900 transition-colors font-medium mb-4 inline-block"
+                    >
+                      {edu.institution} →
+                    </a>
+                    <p className="text-sm text-gray-500">
+                      <span className="font-medium">{startYear} — {endYear}</span>
+                      {' • '}
+                      <span className="text-gray-400">{duration} years</span>
+                    </p>
+                  </GlassCard>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -262,9 +379,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl font-light tracking-tight mb-24 text-center text-gray-900"
           >
-            Projects
+            Featured Projects
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -277,21 +394,36 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group block"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
               >
-                <GlassCard className="h-full">
-                  <h3 className="text-2xl font-medium mb-3 group-hover:text-gray-600 transition-colors">
+                <GlassCard className="h-full border-l-4 border-gray-300 hover:border-gray-600 transition-all duration-300 hover:shadow-xl">
+                  <div className="mb-4 flex items-start justify-between">
+                    <div className="p-2 bg-gray-100 rounded-lg">
+                      <Zap className="w-6 h-6 text-gray-700" />
+                    </div>
+                    {project.primaryLanguage && (
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">
+                        {project.primaryLanguage}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-gray-700 transition-colors">
                     {project.name}
                   </h3>
-                  <p className="text-gray-600 mb-4 font-light leading-relaxed">
+                  <p className="text-gray-700 mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  {project.primaryLanguage && (
-                    <span className="text-xs text-gray-400 uppercase tracking-wider">
-                      {project.primaryLanguage}
-                    </span>
-                  )}
+                  <div className="flex items-center text-gray-700 font-medium text-sm hover:text-gray-900 transition-colors">
+                    View Project
+                    <motion.span
+                      className="ml-2 inline-block"
+                      animate={{ x: [0, 3, 0] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </div>
                 </GlassCard>
               </motion.a>
             ))}
@@ -308,7 +440,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-6xl font-light tracking-tight mb-12 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-light tracking-tight mb-12 text-gray-900">
               Let's Connect
             </h2>
             <p className="text-xl text-gray-600 mb-16 font-light">
