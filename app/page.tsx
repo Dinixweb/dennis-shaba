@@ -135,7 +135,7 @@ export default function Home() {
           </motion.h2>
 
           <div className="space-y-4">
-            {work.map((job, index) => (
+            {work.map((job: any, index: number) => (
               <ExperienceCard
                 key={index}
                 position={job.position}
@@ -327,7 +327,7 @@ export default function Home() {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {education.map((edu, index) => {
+            {education.map((edu: any, index: number) => {
               const startYear = new Date(edu.startDate).getFullYear()
               const endYear = new Date(edu.endDate).getFullYear()
               const duration = endYear - startYear
@@ -385,7 +385,7 @@ export default function Home() {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project: any, index: number) => (
               <motion.a
                 key={index}
                 href={project.url}
