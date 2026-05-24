@@ -9,7 +9,7 @@ import ScrollProgress from '@/components/ScrollProgress'
 import Navigation from '@/components/Navigation'
 import CustomCursor from '@/components/CustomCursor'
 import ExperienceCard from '@/components/ExperienceCard'
-import { Code2, Database, Cloud, Wrench, Layers, Users as UsersIcon, BookOpen, Zap } from 'lucide-react'
+import { Code2, Database, Cloud, Wrench, Layers, Users as UsersIcon, BookOpen, Zap, Brain } from 'lucide-react'
 
 export default function Home() {
   const { basics, work, education, certificates, skills, projects, ventures } = portfolioData as any
@@ -69,14 +69,14 @@ export default function Home() {
 
             <p className="text-2xl md:text-3xl font-light text-gray-600 mb-12 tracking-wide group">
               <span className="inline-block hover:tracking-wider transition-all duration-300">
-                Senior Software Engineer & Team Lead
+                Senior Software Engineer · AI Engineer · Team Lead
               </span>
             </p>
 
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
-              Leading development teams and architecting scalable solutions.
+              Building scalable systems and intelligent AI-powered products.
               <br />
-              Passionate about clean code, innovation, and mentoring.
+              Specializing in LLM integration, prompt engineering, and full-stack development.
             </p>
           </motion.div>
 
@@ -249,7 +249,7 @@ export default function Home() {
               {
                 name: 'Backend',
                 icon: Layers,
-                skills: ['Java', 'Spring Boot', 'Node.js', 'Express.js', 'Python', 'RESTful APIs', 'GraphQL', 'Microservices', 'Spring Web Flux']
+                skills: ['Java', 'Spring Boot', 'Node.js', 'Express.js', 'Python', 'Django', 'RESTful APIs', 'GraphQL', 'Microservices', 'Spring Web Flux', 'FastAPI']
               },
               {
                 name: 'Databases',
@@ -265,6 +265,11 @@ export default function Home() {
                 name: 'Testing & Tools',
                 icon: Wrench,
                 skills: ['JUnit', 'Mockito', 'Selenium', 'Git', 'ApexCharts', 'Axios']
+              },
+              {
+                name: 'AI Engineering',
+                icon: Brain,
+                skills: ['LLM Integration', 'Prompt Engineering', 'OpenAI API', 'Claude API', 'Gemini API', 'AI Agents', 'Fine-tuning', 'CrewAI', 'AutoGen']
               },
               {
                 name: 'Specializations',

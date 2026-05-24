@@ -5,7 +5,7 @@ export const portfolioData = {
     "image": "https://avatars.githubusercontent.com/u/13332211?v=4",
     "email": "sd4live@gmail.com",
     "url": "https://dinixweb.github.io",
-    "summary": "I am a highly skilled and experienced software engineer proficient in both backend and frontend development. With a focus on backend technologies, I bring robust technical expertise and a commitment to staying current with the latest trends. A collaborative team player, I excel under pressure and adapt quickly to new challenges. My experience extends to frontend development, where I specialize in creating intuitive and visually appealing user interfaces. I am self-directed in my approach to learning, driven by a passion for leveraging technology to solve complex problems. Actively seeking a software engineering role, I aim to contribute my skills to a forward-thinking organization that values innovation, collaboration, and excellence across both backend and frontend domains.",
+    "summary": "I am a highly skilled Software Engineer and AI Engineer with deep expertise in full-stack development and building intelligent, LLM-powered products. I specialize in integrating large language models, designing prompt engineering strategies, and building AI agents using frameworks like CrewAI and AutoGen. With a strong foundation in backend and frontend technologies, I bring robust technical expertise and a commitment to staying current with the latest advancements in AI and software engineering. A collaborative team player and technical leader, I excel at architecting scalable systems, mentoring teams, and driving innovation. I have shipped AI-integrated products in production — including Xello.ng and Kuvra — and actively build AI-first solutions through my ventures and engineering roles.",
     "location": {
       "city": "Abuja"
     },
@@ -33,9 +33,12 @@ export const portfolioData = {
       "highlights": [
         "Founded and established company vision, mission, and strategic roadmap",
         "Led overall business operations and strategic planning",
-        "Managed technology development and product innovation",
-        "Oversaw team building and organizational development",
-        "Drove revenue growth and business expansion"
+        "Built AI-powered systems for data processing, job classification, lead verification, and email generation using OpenAI, Claude, and Gemini APIs",
+        "Engineered email validation and intelligent outreach pipelines, reducing manual overhead and improving deliverability at scale",
+        "Developed job tracking applications with real-time workflow visibility, built on Next.js frontends and Python/Django backends",
+        "Integrated AI and LLM capabilities into production products including Xello.ng and Kuvra to deliver intelligent user experiences",
+        "Architected and deployed AI agents using OpenAI and Claude APIs to automate business workflows",
+        "Oversaw team building, organisational development, and drove revenue growth"
       ],
       "location": "Nigeria",
       "isCurrentRole": true
@@ -45,14 +48,16 @@ export const portfolioData = {
       "position": "Software Engineer",
       "url": "https://ecoreservice.com/",
       "startDate": "2022-02-01",
-      "companyDescription": "eCore Service is a leading provider of enterprise communication solutions, specializing in customer engagement platforms and real-time messaging infrastructure for businesses worldwide.",
+      "companyDescription": "eCore Service is an AI-driven data and enterprise solutions company, building intelligent platforms for job classification, lead verification, email automation, and workflow tracking — serving businesses across the United States.",
       "summary": "",
       "highlights": [
-        "Spearheaded the development of a real-time chat application utilizing Nextjs, PubNub. This innovative solution empowered the customer support team to efficiently manage inquiries, leading to an uplift in customer satisfaction ratings, while concurrently demonstrating proficiency in both frontend and backend technologies.",
-        "Led the implementation of intricate functionalities using Next.js and Redux, contributing to an enhanced and more captivating user experience. This accomplishment exemplified a versatile skill set encompassing both frontend and backend technologies.",
-        "Developed and maintained responsive web applications using modern frontend technologies such as JavaScript, TypeScript, React.js, and Next.js.",
-        "Conducted code reviews, refactored codebase for improved maintainability, and contributed to architectural discussions.",
-        "Wrote unit tests, integration tests, and end-to-end tests to ensure code quality and reliability."
+        "Built an AI-powered job classification system using OpenAI, Claude, and Gemini APIs to automatically categorize and route job data at scale with high accuracy",
+        "Developed a lead verification pipeline leveraging LLMs to validate, enrich, and score leads — reducing manual review time and improving conversion quality",
+        "Engineered an email generation and validation system using AI to produce context-aware outreach emails and verify deliverability before sending",
+        "Built a job tracking application enabling users to monitor job status, activity, and outcomes in real time through an intuitive Next.js interface",
+        "Architected Python/Django backend services handling data ingestion, AI orchestration, and business logic across multiple product lines",
+        "Developed and maintained the customer-facing Next.js web application, delivering a seamless experience across classification, tracking, and reporting workflows",
+        "Collaborated on prompt engineering strategies across OpenAI, Claude, and Gemini to optimise accuracy, cost, and response quality for each AI feature"
       ],
       "location": "Remote - Pennsylvania United States",
       "isCurrentRole": true
@@ -74,7 +79,7 @@ export const portfolioData = {
         "Established security protocols and compliance standards for payment processing and user data protection"
       ],
       "location": "Remote - United Kingdom",
-      "isCurrentRole": true
+      "isCurrentRole": false
     },
     {
       "name": "Admoni Inc",
@@ -91,7 +96,7 @@ export const portfolioData = {
         "Driving technical decisions and establishing best practices across the engineering team"
       ],
       "location": "Lagos State, Nigeria · Remote",
-      "isCurrentRole": true
+      "isCurrentRole": false
     },
     {
       "name": "Jobsecta",
@@ -309,17 +314,17 @@ export const portfolioData = {
     },
     {
       "name": "Xello.ng",
-      "description": "Modern marketplace platform connecting buyers and sellers with secure transactions, ratings, and real-time inventory management",
+      "description": "AI-powered marketplace with intelligent product recommendations and smart search, connecting buyers and sellers with secure transactions and real-time inventory management",
       "url": "https://xello.ng/",
       "primaryLanguage": "TypeScript",
-      "languages": ["Next.js", "React", "Node.js", "PostgreSQL"]
+      "languages": ["Next.js", "React", "Node.js", "PostgreSQL", "OpenAI API"]
     },
     {
-      "name": "Zero Tax",
-      "description": "Nigeria-focused tax compliance platform simplifying tax filing, compliance tracking, and regulatory submissions for businesses and individuals",
-      "url": "https://zerotax.ng/",
+      "name": "Kuvra",
+      "description": "AI-powered tax compliance platform with an LLM-driven assistant for real-time guidance on tax filing and regulatory submissions for Nigerian businesses",
+      "url": "https://kuvra.ng/",
       "primaryLanguage": "TypeScript",
-      "languages": ["Next.js", "React", "Node.js", "MongoDB"]
+      "languages": ["Next.js", "React", "Node.js", "MongoDB", "Claude API"]
     },
     {
       "name": "Passiton.ng",
@@ -333,13 +338,14 @@ export const portfolioData = {
     {
       "name": "Xello.ng",
       "role": "Founder & CEO",
-      "description": "Modern marketplace platform connecting buyers and sellers with secure transactions, ratings, and real-time inventory management",
+      "description": "AI-powered marketplace platform connecting buyers and sellers with intelligent product recommendations, secure transactions, and real-time inventory management",
       "url": "https://xello.ng/",
       "launchDate": "2022-06-01",
       "status": "Active",
       "primaryLanguage": "TypeScript",
-      "technologies": ["Next.js", "React", "Node.js", "PostgreSQL"],
+      "technologies": ["Next.js", "React", "Node.js", "PostgreSQL", "OpenAI API"],
       "highlights": [
+        "AI-driven product recommendations and smart search powered by LLMs",
         "Scalable marketplace handling thousands of transactions",
         "Secure payment processing integration",
         "Real-time inventory management system",
@@ -347,15 +353,16 @@ export const portfolioData = {
       ]
     },
     {
-      "name": "Zero Tax",
+      "name": "Kuvra",
       "role": "Founder & CEO",
-      "description": "Nigeria-focused tax compliance platform simplifying tax filing, compliance tracking, and regulatory submissions for businesses and individuals",
-      "url": "https://zerotax.ng/",
+      "description": "AI-powered tax compliance platform simplifying tax filing, compliance tracking, and regulatory submissions for businesses and individuals in Nigeria",
+      "url": "https://kuvra.ng/",
       "launchDate": "2023-03-01",
       "status": "Active",
       "primaryLanguage": "TypeScript",
-      "technologies": ["Next.js", "React", "Node.js", "MongoDB"],
+      "technologies": ["Next.js", "React", "Node.js", "MongoDB", "Claude API"],
       "highlights": [
+        "AI assistant that guides users through tax filing and answers compliance questions in real time",
         "End-to-end tax filing workflow",
         "Real-time compliance tracking",
         "Integration with Nigerian tax authorities",

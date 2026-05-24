@@ -5,12 +5,17 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Dennis Shaba | Senior Software Engineer & Founder | Full Stack Developer',
-  description: 'Experienced Software Engineer with expertise in full-stack development, team leadership, and building scalable platforms. View projects, ventures (Xello.ng, Zero Tax, Passiton.ng), and technical skills.',
+  title: 'Dennis Shaba | Senior Software Engineer & AI Engineer | Full Stack Developer',
+  description: 'Senior Software Engineer and AI Engineer specializing in LLM integration, prompt engineering, RAG pipelines, and full-stack development. Founder of Xello.ng, Kuvra, and Passiton.ng.',
   keywords: [
     'Dennis Shaba',
     'Software Engineer',
+    'AI Engineer',
     'Full Stack Developer',
+    'LLM Integration',
+    'Prompt Engineering',
+    'RAG',
+    'AI Agents',
     'Next.js',
     'React',
     'Node.js',
@@ -24,7 +29,7 @@ export const metadata: Metadata = {
     'TypeScript',
     'Team Lead',
     'Xello.ng',
-    'Zero Tax',
+    'Kuvra',
     'Passiton.ng'
   ],
   authors: [{ name: 'Dennis Shaba', url: 'https://dinixweb.github.io' }],
